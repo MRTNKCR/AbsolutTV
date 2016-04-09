@@ -30,21 +30,25 @@ var Template = function() { return `<?xml version="1.0" encoding="UTF-8" ?>
               <grid>
                 <section>
                   <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
-                    <img src="${this.BASEURL}images/sex.jpg" width="308" height="308" />
-                    <title class="whiteText">Sex on the beach</title>
+                    <img src="${this.BASEURL}resources/images/golden-gleam.jpg" width="308" height="423" />
+                    <title class="whiteText">Golden Gleam</title>
                   </lockup>
                   <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
-                    <img src="${this.BASEURL}resources/images/music/music_2.lcr" width="308" height="308" />
+                    <img src="${this.BASEURL}resources/images/sleepy-head.jpg" width="308" height="423" />
                     <title class="whiteText">Sleepy Head</title>
                   </lockup>
                   <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
-                    <img src="${this.BASEURL}resources/images/music/music_3.lcr" width="308" height="308" />
+                    <img src="${this.BASEURL}resources/images/snowball.jpg" width="308" height="423" />
                     <title class="whiteText">Snowball</title>
                   </lockup>
                   <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
-                    <img src="${this.BASEURL}resources/images/music/music_4.lcr" width="308" height="308" />
+                    <img src="${this.BASEURL}resources/images/white-plush.jpg" width="308" height="423" />
                     <title class="whiteText">White Plush</title>
                   </lockup>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/golden-screw.jpg" width="308" height="423" />
+                    <title class="whiteText">Golden Screw</title>
+                  </lockup>                  
                 </section>
               </grid>
             </relatedContent>
@@ -56,21 +60,81 @@ var Template = function() { return `<?xml version="1.0" encoding="UTF-8" ?>
               <grid>
                 <section>
                   <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
-                    <img src="${this.BASEURL}resources/images/music/music_1.lcr" width="308" height="308" />
-                    <title class="whiteText">Sex on the beach</title>
+                    <img src="${this.BASEURL}resources/images/perini.jpg" width="308" height="423" />
+                    <title class="whiteText">Perini</title>
                   </lockup>
                   <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
-                    <img src="${this.BASEURL}resources/images/music/music_2.lcr" width="308" height="308" />
-                    <title class="whiteText">GinTonic</title>
+                    <img src="${this.BASEURL}resources/images/goldy-rose.jpg" width="308" height="423" />
+                    <title class="whiteText">Goldy Rose</title>
                   </lockup>
                   <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
-                    <img src="${this.BASEURL}resources/images/music/music_3.lcr" width="308" height="308" />
-                    <title class="whiteText">Cuba libre</title>
+                    <img src="${this.BASEURL}resources/images/dawn-crusta.jpg" width="308" height="423" />
+                    <title class="whiteText">Dawn Crusta</title>
                   </lockup>
                 </section>
               </grid>
             </relatedContent>
           </listItemLockup>
+          <listItemLockup>
+            <title>Bitter</title>
+            <decorationLabel>3</decorationLabel>
+            <relatedContent>
+              <grid>
+                <section>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/dianas-bitter.jpg" width="308" height="423" />
+                    <title class="whiteText">Dianas Bitter</title>
+                  </lockup>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/absolut-appearance.jpg" width="308" height="423" />
+                    <title class="whiteText">Absolut Appearance</title>
+                  </lockup>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/yo-ho.jpg" width="308" height="423" />
+                    <title class="whiteText">Yo Ho</title>
+                  </lockup>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/alabazam.jpg" width="308" height="423" />
+                    <title class="whiteText">Alabazam</title>
+                  </lockup>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/alleluja.jpg" width="308" height="423" />
+                    <title class="whiteText">Alleluja</title>
+                  </lockup>
+                </section>
+              </grid>
+            </relatedContent>
+          </listItemLockup>
+          <listItemLockup>
+            <title>Fresh</title>
+            <decorationLabel>3</decorationLabel>
+            <relatedContent>
+              <grid>
+                <section>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/skylab.jpg" width="308" height="423" />
+                    <title class="whiteText">Skylab</title>
+                  </lockup>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/absolut-sunbeam.jpg" width="308" height="423" />
+                    <title class="whiteText">Absolut Sunbeam</title>
+                  </lockup>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/pepparmint-frape.jpg" width="308" height="423" />
+                    <title class="whiteText">Pepparmint Frappé</title>
+                  </lockup>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/lychee-cooler.jpg" width="308" height="423" />
+                    <title class="whiteText">Lichee Cooler</title>
+                  </lockup>
+                  <lockup template="${this.BASEURL}templates/Product.xml.js" presentation="modalDialogPresenter" accessibilityText="Accessible alert template">
+                    <img src="${this.BASEURL}resources/images/peven.jpg" width="308" height="423" />
+                    <title class="whiteText">Peven</title>
+                  </lockup>
+                </section>
+              </grid>
+            </relatedContent>
+          </listItemLockup>     
         </section>
       </list>
     </catalogTemplate>
