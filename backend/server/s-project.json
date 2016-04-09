@@ -1,0 +1,19 @@
+{
+  "name": "bar-tv",
+  "custom": {
+    "serverless-offline": {
+      "babelOptions": {
+        "presets": ["es2015"]
+      }
+    },
+    "client": {
+      "bucketName": "bar-tv"
+    }
+  },
+  "plugins": [
+    "serverless-offline",
+    "serverless-cors-plugin",
+    "serverless-optimizer-plugin",
+    "serverless-client-s3"
+  ]
+}

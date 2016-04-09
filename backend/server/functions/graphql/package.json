@@ -1,0 +1,19 @@
+{
+  "name": "",
+  "version": "0.0.1",
+  "description": "Serverless module dependencies",
+  "author": "me",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "keywords": [],
+  "devDependencies": {},
+  "dependencies": {
+    "algoliasearch": "^3.13.1",
+    "axios": "^0.9.1",
+    "graphql": "^0.5.0"
+  }
+}
