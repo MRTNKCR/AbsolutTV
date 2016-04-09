@@ -2,6 +2,7 @@ import {
   GraphQLString,
   GraphQLObjectType,
   GraphQLInt,
+  GraphQLList,
 } from 'graphql';
 
 const DrinkType = new GraphQLObjectType({
@@ -36,7 +37,14 @@ const DrinkType = new GraphQLObjectType({
         const youtubeId = videosData[0].video;
         return 'https://www.youtube.com/watch?v=' + youtubeId;
       }
-    }
+    },
+    ingredients: {
+      type: new GraphQLList(GraphQLString),
+      description: "Ingredients in the drink",
+      resolve: (drink) => {
+        return drink.ingredients.map((i) => i.textPlain);
+      },
+    },
   }),
 });
 
