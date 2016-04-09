@@ -25,13 +25,23 @@ const DrinkType = new GraphQLObjectType({
       description: 'Story about the drink if exists',
       resolve: (drink) => drink.story ? drink.story : null,
     },
-    image: ImageUrlField
+    image: ImageUrlField,
+    video: {
+      type: GraphQLString,
+      description: 'Youtube video URL of the drink',
+      resolve: (drink) => {
+        const videosData = drink.videos.filter((v) => v.type === 'youtube');
+        if (videosData.length === 0) return null;
+        const youtubeId = videosData[0].video;
+        return 'https://www.youtube.com/watch?v=' + youtubeId;
+      }
+    }
   }),
 });
 
 const ImageUrlField = {
   type: GraphQLString,
-  description: 'Image of ingredient',
+  description: 'Image URL of the drink',
   args: {
     size: { type: GraphQLString },
   },
