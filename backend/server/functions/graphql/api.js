@@ -18,7 +18,7 @@ export function searchAlgolia(indexName, searchTerm) {
   });
 }
 
-export function searchAddbByIngredient(ingredientId) {
+export function searchAddbByIngredientId(ingredientId) {
   console.log('GET ADDB: ' + ingredientId);
 
   if (!process.env.ADDB_API_KEY) {

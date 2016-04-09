@@ -56,11 +56,9 @@ const DrinksField = {
         return api.searchAddbByTasteId(tasteId);
       });
     } else {
-      return api.searchAlgolia('tastes', ingredient).then((data) => {
+      return api.searchAlgolia('ingredients', ingredient).then((data) => {
         const ingredientId = data[0].id;
-        return api.searchAddbByTasteId(ingredientId);
-      }).then((data) => {
-        return data;
+        return api.searchAddbByIngredientId(ingredientId);
       });
     }
   },
