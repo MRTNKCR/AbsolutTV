@@ -40,25 +40,29 @@ const DrinksField = {
   type: new GraphQLList(DrinkType),
   description: 'All drinks',
   args: {
-    ingredient: { 
-      type: GraphQLString,
-      description: 'Name of ingredient'
+    ingredients: { 
+      type: new GraphQLList(GraphQLString),
+      description: 'One or more ingredients the drink must have'
     },
     taste: { 
       type: GraphQLString,
       description: 'Name of taste'
     },
   },
-  resolve: (source, {ingredient, taste}) => {
+  resolve: (source, {ingredients, taste}) => {
+    ingredients = ingredients || [];
     if (taste) {
       return api.searchAlgolia('tastes', taste).then((data) => {
         const tasteId = data[0].id;
         return api.searchAddbByTasteId(tasteId);
       });
     } else {
-      return api.searchAlgolia('ingredients', ingredient).then((data) => {
-        const ingredientId = data[0].id;
-        return api.searchAddbByIngredientId(ingredientId);
+      if (ingredients.length === 0) return [];
+      const promises = ingredients.map((i) => api.searchAlgolia('ingredients', i));
+
+      return Promise.all(promises).then((data) => {
+        const ingredientIds  = data.map((results) => results[0].id);
+        return api.searchAddbByIngredientIds(ingredientIds);
       });
     }
   },

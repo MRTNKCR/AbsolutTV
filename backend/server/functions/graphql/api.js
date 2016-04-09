@@ -18,14 +18,15 @@ export function searchAlgolia(indexName, searchTerm) {
   });
 }
 
-export function searchAddbByIngredientId(ingredientId) {
-  console.log('GET ADDB: ' + ingredientId);
+export function searchAddbByIngredientIds(ingredientIds) {
+  console.log('GET ADDB: ' + ingredientIds.join(', '));
 
   if (!process.env.ADDB_API_KEY) {
     throw new Error('Missing ENV var: ADDB_API_KEY')
   }
 
-  const url = 'http://addb.absolutdrinks.com/drinks/with/' + ingredientId + '?apiKey=' + process.env.ADDB_API_KEY;
+  const ingredients = ingredientIds.join('/and/');
+  const url = 'http://addb.absolutdrinks.com/drinks/with/' + ingredients + '?apiKey=' + process.env.ADDB_API_KEY;
 
   return axios.get(url).then((response) => response.data.result);
 }
