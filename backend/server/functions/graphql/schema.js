@@ -8,6 +8,7 @@ import {
 
 import TasteType from './types/taste';
 import IngredientType from './types/ingredient';
+import DrinkType from './types/drink';
 
 import * as api from './api';
 
@@ -35,12 +36,32 @@ const IngredientsField = {
   },
 }
 
+const DrinksField = {
+  type: new GraphQLList(DrinkType),
+  description: 'All drinks',
+  args: {
+    ingredient: { 
+      type: GraphQLString,
+      description: 'Name of ingredient'
+    },
+  },
+  resolve: (source, {ingredient}) => {
+    return api.searchAlgolia('ingredients', ingredient).then((data) => {
+      const ingredientId = data[0].id;
+      return api.searchAddbByIngredient(ingredientId);
+    }).then((data) => {
+      return data;
+    });
+  },
+}
+
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'RootQueryType',
     fields: () => ({
       tastes: TastesField,
       ingredients: IngredientsField,
+      drinks: DrinksField,
     })
   })
 });

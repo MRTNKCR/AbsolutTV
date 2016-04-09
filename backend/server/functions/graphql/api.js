@@ -1,4 +1,5 @@
 import algoliasearch from 'algoliasearch';
+import axios from 'axios';
 
 export function searchAlgolia(indexName, searchTerm) {
   console.log('GET Algolia: ' + searchTerm);
@@ -15,4 +16,16 @@ export function searchAlgolia(indexName, searchTerm) {
   return index.search(searchTerm).then((response) => {
     return response.hits;
   });
+}
+
+export function searchAddbByIngredient(ingredientId) {
+  console.log('GET ADDB: ' + ingredientId);
+
+  if (!process.env.ADDB_API_KEY) {
+    throw new Error('Missing ENV var: ADDB_API_KEY')
+  }
+
+  const url = 'http://addb.absolutdrinks.com/drinks/with/' + ingredientId + '?apiKey=' + process.env.ADDB_API_KEY;
+
+  return axios.get(url).then((response) => response.data.result);
 }
