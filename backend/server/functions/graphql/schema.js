@@ -44,14 +44,25 @@ const DrinksField = {
       type: GraphQLString,
       description: 'Name of ingredient'
     },
+    taste: { 
+      type: GraphQLString,
+      description: 'Name of taste'
+    },
   },
-  resolve: (source, {ingredient}) => {
-    return api.searchAlgolia('ingredients', ingredient).then((data) => {
-      const ingredientId = data[0].id;
-      return api.searchAddbByIngredient(ingredientId);
-    }).then((data) => {
-      return data;
-    });
+  resolve: (source, {ingredient, taste}) => {
+    if (taste) {
+      return api.searchAlgolia('tastes', taste).then((data) => {
+        const tasteId = data[0].id;
+        return api.searchAddbByTasteId(tasteId);
+      });
+    } else {
+      return api.searchAlgolia('tastes', ingredient).then((data) => {
+        const ingredientId = data[0].id;
+        return api.searchAddbByTasteId(ingredientId);
+      }).then((data) => {
+        return data;
+      });
+    }
   },
 }
 
