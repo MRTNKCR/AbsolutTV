@@ -51,7 +51,15 @@ const DrinksField = {
   },
   resolve: (source, {ingredients, taste}) => {
     ingredients = ingredients || [];
-    if (taste) {
+
+    if (taste && ingredients.length > 0) {
+      const promises = ingredients.map((i) => api.searchAlgolia('ingredients', i));
+
+      return Promise.all(promises).then((data) => {
+        const ingredientIds  = data.map((results) => results[0].id);
+        return api.searchAddbByIngredientIdsAndTaste(ingredientIds, taste);
+      });
+    } else if (taste) {
       return api.searchAlgolia('tastes', taste).then((data) => {
         const tasteId = data[0].id;
         return api.searchAddbByTasteId(tasteId);

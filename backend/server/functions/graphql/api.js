@@ -42,3 +42,16 @@ export function searchAddbByTasteId(tasteId) {
 
   return axios.get(url).then((response) => response.data.result);
 }
+
+export function searchAddbByIngredientIdsAndTaste(ingredientIds, tasteId) {
+  console.log('GET ADDB: ' + ingredientIds.join(', ') + '; ' + tasteId);
+
+  if (!process.env.ADDB_API_KEY) {
+    throw new Error('Missing ENV var: ADDB_API_KEY')
+  }
+
+  const ingredients = ingredientIds.join('/and/');
+  const url = 'http://addb.absolutdrinks.com/drinks/with/' + ingredients + '/tasting/' + tasteId + '?apiKey=' + process.env.ADDB_API_KEY;
+
+  return axios.get(url).then((response) => response.data.result);
+}
