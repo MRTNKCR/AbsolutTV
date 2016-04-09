@@ -1,6 +1,7 @@
 import {
   GraphQLString,
-  GraphQLObjectType
+  GraphQLObjectType,
+  GraphQLInt,
 } from 'graphql';
 
 const DrinkType = new GraphQLObjectType({
@@ -25,8 +26,8 @@ const DrinkType = new GraphQLObjectType({
       description: 'Story about the drink if exists',
       resolve: (drink) => drink.story ? drink.story : null,
     },
-    image: ImageUrlField,
-    video: {
+    imageUrl: ImageUrlField,
+    videoUrl: {
       type: GraphQLString,
       description: 'Youtube video URL of the drink',
       resolve: (drink) => {
@@ -43,11 +44,28 @@ const ImageUrlField = {
   type: GraphQLString,
   description: 'Image URL of the drink',
   args: {
-    size: { type: GraphQLString },
+    maxWidth: {
+      type: GraphQLInt,
+      description: "Max image width in pixels. Default: 640",
+    },
+    maxHeigth: {
+      type: GraphQLInt,
+      description: "Max image height in pixels. Default: 640",
+    },
+    format: {
+      type: GraphQLString,
+      description: "[png | jpg] Default: png",
+    },
   },
-  resolve: (source, {size}) => {
+  resolve: (source, {maxWidth, maxHeigth, format}) => {
+    maxWidth = maxWidth || 640;
+    maxHeigth = maxHeigth || 640;
+    format = format || 'png';
+
+    const size = maxWidth + 'x' + maxHeigth;
     const id = source.id;
-    return 'http://assets.absolutdrinks.com/drinks/' + size + '/' + id + '.png'
+    const url = 'http://assets.absolutdrinks.com/drinks/solid-background-black/soft-shadow/floor-reflection';
+    return [url, size, id + '.' + format].join('/');
   },
 }
 
