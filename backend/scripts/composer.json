@@ -1,0 +1,14 @@
+{
+    "name": "absolut-tv/scripts",
+    "require": {
+        "symfony/var-dumper": "^3.0",
+        "algolia/algoliasearch-client-php": "^1.8",
+        "vlucas/phpdotenv": "^2.2"
+    },
+    "authors": [
+        {
+            "name": "Michal Sanger",
+            "email": "michal.sanger@gmail.com"
+        }
+    ]
+}
